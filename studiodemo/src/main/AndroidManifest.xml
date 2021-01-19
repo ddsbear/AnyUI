@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.dds.studiodemo">
+
+    <application>
+        <activity
+            android:name=".TabbedActivity"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".ViewModelActivity" />
+    </application>
+
+</manifest>

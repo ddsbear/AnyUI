@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 public class CameraPreview {
     private SurfaceCallback mSurfaceCallback;
 
-
     public final void setSurfaceCallback(@NonNull SurfaceCallback callback) {
         mSurfaceCallback = callback;
     }

@@ -24,7 +24,6 @@ public abstract class CameraEngine implements CameraPreview.SurfaceCallback, Thr
 
     private WorkerHandler mHandler;  // 开启线程工作
 
-
     protected CameraOptions mCameraOptions;
 
     // log

@@ -3,7 +3,9 @@ package com.dds.camera.utils;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
+
 import androidx.annotation.NonNull;
+
 import com.dds.camera.CameraLogger;
 
 import java.lang.ref.WeakReference;
@@ -20,6 +22,7 @@ public class WorkerHandler {
 
     /**
      * Gets a possibly cached handler with the given name.
+     *
      * @param name the handler name
      * @return a handler
      */
@@ -68,6 +71,7 @@ public class WorkerHandler {
 
     /**
      * Post an action on this handler.
+     *
      * @param runnable the action
      */
     public void post(@NonNull Runnable runnable) {
@@ -76,6 +80,7 @@ public class WorkerHandler {
 
     /**
      * Returns the android backing {@link Handler}.
+     *
      * @return the handler
      */
     public Handler get() {
@@ -84,6 +89,7 @@ public class WorkerHandler {
 
     /**
      * Returns the android backing {@link HandlerThread}.
+     *
      * @return the thread
      */
     @NonNull
@@ -93,6 +99,7 @@ public class WorkerHandler {
 
     /**
      * Returns the android backing {@link Looper}.
+     *
      * @return the looper
      */
     @NonNull
@@ -107,7 +114,6 @@ public class WorkerHandler {
     public static void destroy() {
         for (String key : sCache.keySet()) {
             WeakReference<WorkerHandler> ref = sCache.get(key);
-            //noinspection ConstantConditions
             WorkerHandler handler = ref.get();
             if (handler != null && handler.getThread().isAlive()) {
                 handler.getThread().interrupt();
