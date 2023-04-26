@@ -1,2 +1,2 @@
-include ':app', ':cameraview', ':studiodemo'
+include ':app', ':studiodemo'
 rootProject.name='AnyUI'

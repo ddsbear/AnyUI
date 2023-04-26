@@ -24,4 +24,13 @@
         android:onClick="recyclerView"
         android:text="RecyclerView"
         android:textAllCaps="false" />
+
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="TestAnimation"
+        android:text="TestAnimation"
+        android:textAllCaps="false" />
 </LinearLayout>

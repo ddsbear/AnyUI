@@ -25,4 +25,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, TestActivity.class));
 
     }
+
+    public void TestAnimation(View view) {
+    }
 }
