@@ -2,11 +2,13 @@ package com.dds.anyui;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,6 +29,7 @@ import java.util.List;
 public class ItemFragment extends Fragment {
 
     private static final String ARG_COLUMN_COUNT = "column-count";
+    private Context mContext;
     private int mColumnCount = 1;
 
     static {
@@ -34,7 +37,14 @@ public class ItemFragment extends Fragment {
         addItem("测试2", RecyclerActivity.class);
         addItem("测试3", RecyclerActivity.class);
         addItem("测试4", RecyclerActivity.class);
-
+        addItem("测试1", RecyclerActivity.class);
+        addItem("测试2", RecyclerActivity.class);
+        addItem("测试3", RecyclerActivity.class);
+        addItem("测试4", RecyclerActivity.class);
+        addItem("测试1", RecyclerActivity.class);
+        addItem("测试2", RecyclerActivity.class);
+        addItem("测试3", RecyclerActivity.class);
+        addItem("测试4", RecyclerActivity.class);
     }
 
     public static void addItem(String content, Class<?> clazz) {
@@ -62,6 +72,12 @@ public class ItemFragment extends Fragment {
     }
 
     @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        mContext = context;
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_item_list, container, false);
@@ -72,8 +88,11 @@ public class ItemFragment extends Fragment {
             RecyclerView recyclerView = (RecyclerView) view;
             if (mColumnCount <= 1) {
                 recyclerView.setLayoutManager(new LinearLayoutManager(context));
+                recyclerView.addItemDecoration(new DividerItemDecoration(mContext,DividerItemDecoration.VERTICAL));
+
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
+                recyclerView.addItemDecoration(new DividerItemDecoration(mContext,DividerItemDecoration.HORIZONTAL));
             }
             MyItemRecyclerViewAdapter adapter = new MyItemRecyclerViewAdapter(PlaceholderContent.ITEMS);
             adapter.setOnItemClickListener((view1, placeholderItem, position) -> {
